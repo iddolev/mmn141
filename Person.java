@@ -1,3 +1,4 @@
+// import java.util.Iterator;
 
 public class Person implements Comparable<Person> {
 
@@ -15,14 +16,39 @@ public class Person implements Comparable<Person> {
 	}
 	
 	public String toString() {
-		// TO DO
-		return "";
+		String s = _name + " with id num. " + _id + " was born in - " + _birthYear;
+		return s;
 	}
 
 	@Override
-	public int compareTo(Person o) {
-		// TODO Auto-generated method stub
+	public int compareTo(Person other) {
+		if (this._birthYear > other._birthYear) {
+			return 1;
+		}
+		if (this._birthYear < other._birthYear) {
+			return -1;
+		}
 		return 0;
 	}
+	
+	/* public <T extends Comparable<T>> SortedGroup<T> rangeReduce(SortedGroup<T> sGroup, T x, T y) {
+		SortedGroup<T> result = new SortedGroup<>();
+		
+		for(Iterator<T> it = sGroup.iterator(); it.hasNext(); )
+		{
+			T current = it.next();
+			if (current.compareTo(y) < 0) {
+				continue; // don't add the elements that are smaller than y
+			}
+			if (current == x) {
+				break; // don't add the elements that are >= x
+			}
+			else{
+				result.add(current);
+			}
+		}
+		
+		return result;
+	} */
 
 }
